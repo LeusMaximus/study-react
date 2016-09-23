@@ -1,4 +1,14 @@
+const App = React.createClass({
+  render() {
+    return (
+      <div className="app">
+        Hello everybody, I'm the App component!
+      </div>
+    )
+  }
+});
+
 ReactDOM.render(
-  <h1>Hello, world!</h1>,
+  <App />,
   document.getElementById('root')
 );
