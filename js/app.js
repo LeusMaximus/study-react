@@ -28,20 +28,25 @@ const App = React.createClass({
 const News = React.createClass({
   render() {
     const data = this.props.data;
+    const dataSize = data.length;
 
-    const newsTemplate = data.map((item, index) => (
-        <div key={index}>
-          <p className="news__author">{item.author}:</p>
-          <p className="news__text">{item.text}</p>
-        </div>
-      )
-    )
+    const newsTemplate = (() => {
+      if (dataSize) {
+        return data.map((item, index) => (
+          <div key={index}>
+            <p className="news__author">{item.author}:</p>
+            <p className="news__text">{item.text}</p>
+          </div>
+        ))
+      }
 
-    console.log(newsTemplate)
+      return <p>Unfortunately, there are no news.</p>
+    })();
 
     return (
       <div className="news">
         {newsTemplate}
+        <strong className={dataSize ? '' : 'none'}>Total news: {dataSize}</strong>
       </div>
     );
   }
