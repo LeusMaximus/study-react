@@ -17,9 +17,9 @@ const App = React.createClass({
   render() {
     return (
       <div className="app">
-        Hello everybody, I'm the App component!
+        <h3>News</h3>
         <News data={my_news} />{/* Add some data property*/}
-        <Comments />
+        {/*<Comments />*/}
       </div>
     );
   }
@@ -34,8 +34,7 @@ const News = React.createClass({
       if (dataSize) {
         return data.map((item, index) => (
           <div key={index}>
-            <p className="news__author">{item.author}:</p>
-            <p className="news__text">{item.text}</p>
+            <Article data={item} />
           </div>
         ))
       }
@@ -46,9 +45,22 @@ const News = React.createClass({
     return (
       <div className="news">
         {newsTemplate}
-        <strong className={dataSize ? '' : 'none'}>Total news: {dataSize}</strong>
+        <strong className={'news__count ' + (dataSize ? '' : 'none')}>Total news: {dataSize}</strong>
       </div>
     );
+  }
+});
+
+const Article = React.createClass({
+  render() {
+    const data = this.props.data;
+
+    return (
+      <div className="article">
+        <p className="news__author">{data.author}:</p>
+        <p className="news__text">{data.text}</p>
+      </div>
+    )
   }
 });
 
