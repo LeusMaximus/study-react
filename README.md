@@ -1,2 +1,2 @@
 # study-react
-Study react from https://www.gitbook.com/book/maxfarseer/react-course-ru/details
+Study react from [react-course-ru](https://www.gitbook.com/book/maxfarseer/react-course-ru/details)
