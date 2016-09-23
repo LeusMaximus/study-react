@@ -26,6 +26,9 @@ const App = React.createClass({
 });
 
 const News = React.createClass({
+  propTypes: {
+    data: React.PropTypes.array.isRequired
+  },
   render() {
     const data = this.props.data;
     const dataSize = data.length;
@@ -52,6 +55,12 @@ const News = React.createClass({
 });
 
 const Article = React.createClass({
+  propTypes: {
+    data: React.PropTypes.shape({
+      author: React.PropTypes.string.isRequired,
+      text: React.PropTypes.string.isRequired
+    })
+  },
   render() {
     const data = this.props.data;
 
